@@ -1,6 +1,5 @@
 nbproject/
-app
-!app/*
+app/
 test/
 config/
 bower.json
