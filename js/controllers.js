@@ -106,8 +106,9 @@ appControllers.controller('PlayCtrl', ['$scope', 'config', function($scope, conf
 
         $scope.play = function($event) {
             var index = $event.target.id;
-            console.log(index);
+            console.log('index ' + index);
             var note = sequence.charAt(index - 1);
+            console.log('note ' + note);
             createOscillator(index);
 
             // mise à jour du nombre de click effectués par le joueur
@@ -119,6 +120,8 @@ appControllers.controller('PlayCtrl', ['$scope', 'config', function($scope, conf
             else {
                 // push last played note
                 userSequence.push(note);
+                console.log('userSequence' + userSequence);
+                console.log('auto sequence' + userSequence)
                 // vérifier égalité des deux array : sequence et userSquence
                 if (verifEquality()) {
                     // si OK passer level sup
