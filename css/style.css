@@ -1,0 +1,217 @@
+body {
+  background: #222;
+  margin-top: 70px;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Bitter:400,700);
+
+
+/* HOME COMP */
+.home {
+  color:white;
+}
+
+.game-title {
+  text-align: center;
+  text-shadow: -1px -1px 0px rgba(255,255,255,0.3), 1px 1px 0px rgba(0,0,0,0.8);  
+  opacity: 0.4;
+  color: #333;
+	font: 700 120px 'Bitter';
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+
+.game-start {
+  color: white;
+  cursor: pointer;
+  font: 700 80px 'Permanent Marker';
+  color: red;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: red;
+}
+
+.color-container {
+  display: flex;
+  width: 100%;
+  height: 5px;
+  margin-bottom: 15px;
+}
+
+.color {
+  width: 25%;
+  height: 5px;
+}
+
+.green {
+  background: green;
+  display: list-item;
+  list-style: none;
+}
+
+.yellow {
+  background-color: yellow;
+  display: list-item;
+  list-style: none;
+}
+
+.red {
+  background-color: red;
+  display: list-item;
+  list-style: none;
+}
+
+.blue {
+  background-color: blue;
+  display: list-item;
+  list-style: none;
+}
+
+
+/* GAME COMP */
+.game {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.game-infos-row {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  margin-bottom: 35px;
+}
+
+.info-text {
+  color: white;
+  cursor: pointer;
+  font: 700 80px 'Permanent Marker';
+  color: red;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: red;
+}
+
+.squares-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.square-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.square {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+
+.highlight-yellow {
+  border-radius: 50%;
+  width:100px;
+  height: 100px;
+  /*background-color: white;*/
+  opacity: 0.3;
+  position: absolute;
+  background-image: -webkit-radial-gradient(circle, white, yellow);
+  background-image: -webkit-radial-linear-gradient(circle, white, yellow);
+  background-image: -moz-radial-linear-gradient(circle, white, yellow);
+  background-image: radial-gradient(circle, white, yellow);
+}
+
+.highlight-red {
+  border-radius: 50%;
+  width:100px;
+  height: 100px;
+  /*background-color: white;*/
+  opacity: 0.3;
+  position: absolute;
+  background-image: -webkit-radial-gradient(circle, white, red);
+  background-image: -webkit-radial-linear-gradient(circle, white, red);
+  background-image: -moz-radial-linear-gradient(circle, white, red);
+  background-image: radial-gradient(circle, white, red);
+}
+
+.highlight-green {
+  border-radius: 50%;
+  width:100px;
+  height: 100px;
+  /*background-color: white;*/
+  opacity: 0.3;
+  position: absolute;
+  background-image: -webkit-radial-gradient(circle, white, green);
+  background-image: -webkit-radial-linear-gradient(circle, white, green);
+  background-image: -moz-radial-linear-gradient(circle, white, green);
+  background-image: radial-gradient(circle, white, green);
+}
+
+.highlight-blue {
+  border-radius: 50%;
+  width:100px;
+  height: 100px;
+  /*background-color: white;*/
+  opacity: 0.3;
+  position: absolute;
+  background-image: -webkit-radial-gradient(circle, white, blue);
+  background-image: -webkit-radial-linear-gradient(circle, white, blue);
+  background-image: -moz-radial-linear-gradient(circle, white, blue);
+  background-image: radial-gradient(circle, white, blue);
+}
+
+#green {
+  /*background-color: green;
+  color:#007107;
+  color:#009909;
+  color:#5DD464;*/
+
+  background: linear-gradient(315deg, transparent 75%, #5DD464 0)-2px 0,
+  linear-gradient(45deg, transparent 75%, #5DD464 0)-2px 0,
+  linear-gradient(135deg, #009909 50%, transparent 0) 0 0,
+  linear-gradient(45deg, #007107 50%, #007107 0) 0 0 #007107;
+  background-size: 4px 4px;
+}
+
+
+#yellow {
+ /* background-color: yellow;
+  color: #EDED03;
+  color: #D4D469;
+  color: #8F8F11;*/
+
+  background: linear-gradient(315deg, transparent 75%, #D4D469 0)-2px 0,
+  linear-gradient(45deg, transparent 75%, #D4D469 0)-2px 0,
+  linear-gradient(135deg, yellow 50%, transparent 0) 0 0,
+  linear-gradient(45deg, #8F8F11 50%, #8F8F11 0) 0 0 #8F8F11;
+  background-size: 4px 4px;
+}
+
+
+#red {
+  /*background-color: red;*/
+
+  background: linear-gradient(315deg, transparent 75%, #d45d55 0)-2px 0,
+  linear-gradient(45deg, transparent 75%, #d45d55 0)-2px 0,
+  linear-gradient(135deg, #FF1000 50%, transparent 0) 0 0,
+  linear-gradient(45deg, #6a201b 50%, #561a16 0) 0 0 #561a16;
+  background-size: 4px 4px;
+}
+
+
+#blue {
+  /*background-color: blue;
+  color: #000087;
+  color: blue;
+  color: #5656FA;*/
+
+  background: linear-gradient(315deg, transparent 75%, #5656FA 0)-2px 0,
+  linear-gradient(45deg, transparent 75%, #5656FA 0)-2px 0,
+  linear-gradient(135deg, blue 50%, transparent 0) 0 0,
+  linear-gradient(45deg, #000087 50%, #000087 0) 0 0 #000087;
+  background-size: 4px 4px;
+}

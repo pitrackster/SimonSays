@@ -1,7 +1,5 @@
-nbproject/
-app/
-test/
-config/
-bower.json
-LICENSE
-package.json
+node_modules
+downloaded/*
+build/*
+npm-debug.log
+!.keep
