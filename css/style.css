@@ -1,15 +1,13 @@
 body {
   background: #222;
   margin-top: 70px;
+  color:white;
 }
 
-@import url(http://fonts.googleapis.com/css?family=Bitter:400,700);
+
 
 
 /* HOME COMP */
-.home {
-  color:white;
-}
 
 .game-title {
   text-align: center;
@@ -19,8 +17,6 @@ body {
 	font: 700 120px 'Bitter';
 }
 
-
-@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
 
 .game-start {
   color: white;
@@ -86,7 +82,9 @@ body {
 .info-text {
   color: white;
   cursor: pointer;
-  font: 700 80px 'Permanent Marker';
+  font-size: 80px;
+  font-weight: 700;
+  font-family: 'Orbitron', sans-serif;
   color: red;
   -webkit-text-fill-color: white;
   -webkit-text-stroke-width: 1px;
@@ -108,7 +106,7 @@ body {
 .square {
   width: 150px;
   height: 150px;
-  border: 1px solid #eee;
+  border: 1px solid #aaa;
   border-radius: 5px;
 }
 
@@ -116,7 +114,6 @@ body {
   border-radius: 50%;
   width:100px;
   height: 100px;
-  /*background-color: white;*/
   opacity: 0.3;
   position: absolute;
   background-image: -webkit-radial-gradient(circle, white, yellow);
@@ -129,7 +126,6 @@ body {
   border-radius: 50%;
   width:100px;
   height: 100px;
-  /*background-color: white;*/
   opacity: 0.3;
   position: absolute;
   background-image: -webkit-radial-gradient(circle, white, red);
@@ -142,7 +138,6 @@ body {
   border-radius: 50%;
   width:100px;
   height: 100px;
-  /*background-color: white;*/
   opacity: 0.3;
   position: absolute;
   background-image: -webkit-radial-gradient(circle, white, green);
@@ -155,7 +150,6 @@ body {
   border-radius: 50%;
   width:100px;
   height: 100px;
-  /*background-color: white;*/
   opacity: 0.3;
   position: absolute;
   background-image: -webkit-radial-gradient(circle, white, blue);
@@ -165,11 +159,6 @@ body {
 }
 
 #green {
-  /*background-color: green;
-  color:#007107;
-  color:#009909;
-  color:#5DD464;*/
-
   background: linear-gradient(315deg, transparent 75%, #5DD464 0)-2px 0,
   linear-gradient(45deg, transparent 75%, #5DD464 0)-2px 0,
   linear-gradient(135deg, #009909 50%, transparent 0) 0 0,
@@ -179,11 +168,6 @@ body {
 
 
 #yellow {
- /* background-color: yellow;
-  color: #EDED03;
-  color: #D4D469;
-  color: #8F8F11;*/
-
   background: linear-gradient(315deg, transparent 75%, #D4D469 0)-2px 0,
   linear-gradient(45deg, transparent 75%, #D4D469 0)-2px 0,
   linear-gradient(135deg, yellow 50%, transparent 0) 0 0,
@@ -193,8 +177,6 @@ body {
 
 
 #red {
-  /*background-color: red;*/
-
   background: linear-gradient(315deg, transparent 75%, #d45d55 0)-2px 0,
   linear-gradient(45deg, transparent 75%, #d45d55 0)-2px 0,
   linear-gradient(135deg, #FF1000 50%, transparent 0) 0 0,
@@ -204,14 +186,27 @@ body {
 
 
 #blue {
-  /*background-color: blue;
-  color: #000087;
-  color: blue;
-  color: #5656FA;*/
-
   background: linear-gradient(315deg, transparent 75%, #5656FA 0)-2px 0,
   linear-gradient(45deg, transparent 75%, #5656FA 0)-2px 0,
   linear-gradient(135deg, blue 50%, transparent 0) 0 0,
   linear-gradient(45deg, #000087 50%, #000087 0) 0 0 #000087;
   background-size: 4px 4px;
+}
+
+.end {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.end-text {
+  color: white;
+  cursor: pointer;
+  font-size: 50px;
+  font-weight: 700;
+  font-family: 'Orbitron', sans-serif;
+  color: red;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: red;
 }

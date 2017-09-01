@@ -4,22 +4,19 @@ import {PropTypes as T} from 'prop-types'
 class End extends Component {
   constructor(props) {
     super(props)
-
-    this.initialState = {
-      view: 'home',
-      score: 0,
-      level: 1,
-      sequence: []
-    }
-  
-    this.state = this.initialState
   }
 
   render() {
-    return(
-        <div>
-          <h1>SCORES</h1>
-          <button onClick={() => this.props.onRestart('game')}>RESTART</button>        
+    return (
+        <div className="end">
+          <div className="end-text">You finished with a score of 100000!</div>
+          <div className="color-container">
+            <div className="color red"></div>
+            <div className="color green"></div>
+            <div className="color yellow"></div>
+            <div className="color blue"></div>
+          </div>
+          <div className="end-text" onClick={() => this.props.onRestart('game')}>Retry ?</div>  
         </div>
       )
   }

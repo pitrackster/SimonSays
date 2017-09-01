@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import {PropTypes as T} from 'prop-types'
 import Tone from 'tone'
 
+import Synth from './../models/synth'
+
 class Game extends Component {
   constructor(props) {
     super(props)
@@ -9,32 +11,27 @@ class Game extends Component {
     this.initialState = {      
       score: 0,
       level: 1,
-      sequence: [],
-      currentButton: ''
+      sequence: [this.getRandomIndex()],
+      currentButton: '',
+      playerSequence: []
     }
-
-    /*Green – G4 391.995 Hz
-Red – E4 329.628 Hz
-Yellow – C4 261.626 Hz
-Blue – G3 195.998 Hz*/
-
 
     this.buttons = [
       {
         color: 'green',
-        note: 'G4'
+        note: 391.995
       },
       {
         color: 'yellow',
-        note: 'C4'
+        note: 261.626
       },
       {
         color: 'red',
-        note: 'E4'
+        note: 329.628
       },
       {
         color: 'blue',
-        note: 'G3'
+        note: 195.998
       }
     ]
 
@@ -43,34 +40,89 @@ Blue – G3 195.998 Hz*/
       oscillator : {
         type : 'triangle'
       }
-    }).toMaster()
-    
-    //play a middle 'C' for the duration of an 8th note
-    //this.synth.triggerAttackRelease('C4', '8n')
+    }).toMaster()    
   
-    this.state = this.initialState
+    this.state = this.initialState  
+    
+    this.synth = new Synth()
+   
   }
 
-  nextLevel(){
+  playSequence(seq, index = 0) {
+    if(index < seq.length) {
+      const btn = this.buttons[seq[index]]
+      //const btn = this.buttons.find(button => button.note === note)
+      this.play(btn)
+      setTimeout(() => {
+        this.stop()  
+      }, 400)
+      
+      setTimeout(() => {
+        index += 1
+        this.playSequence(seq, index)
+      }, 500)  
+    }
+  }
 
+  componentDidMount() {
+    this.playSequence(this.state.sequence)
+  }
+
+  getRandomIndex() {
+    return Math.floor(Math.random() * (3 - 1 + 1) + 1)
+  }
+
+  levelUp(){
+    let newSequence = Array.from(this.state.sequence)
+    newSequence.push(this.getRandomIndex())
+    this.setState(Object.assign(this.state, {playerSequence: [], sequence: newSequence, score: this.state.score + 10, level: this.state.level + 1 }))
+    setTimeout(() => {
+      this.playSequence(newSequence)
+    }, 1000)
   }
 
   play(button){
-    this.synth.triggerAttackRelease(button.note, '8n')
-    this.setState(Object.assign(this.state, {currentButton: button.color}))
+    this.synth.play(button.note)
+    this.lighten(button.color)   
   }
 
   stop(){
+    this.synth.stop()
+    this.unlighten()  
+  }
+
+  recordUserSequence(button){
+    if(this.state.playerSequence.length > this.state.sequence.length) {
+      // send an error sound and end game
+      this.endGame()
+    } else if (this.state.playerSequence.length <= this.state.sequence.length) {
+      // check the given button 
+      if(button.color === this.buttons[this.state.sequence[this.state.playerSequence.length]].color){
+        this.play(button)
+        let newSequence = Array.from(this.state.playerSequence)
+        newSequence.push(button.color)
+        this.setState(Object.assign(this.state, {playerSequence: newSequence}))
+        if(this.state.playerSequence.length === this.state.sequence.length) {
+          this.levelUp()
+        }
+        
+      } else {
+        this.endGame()
+      }
+    }
+  }
+
+  
+  lighten(color){
+    this.setState(Object.assign(this.state, {currentButton: color}))
+  }
+
+  unlighten(){
     this.setState(Object.assign(this.state, {currentButton: ''}))
   }
 
-  playSequence(){
-
-  }
-
-
-
   endGame() {
+    // @TODO create an error sound
     this.setState(this.initialState)
     this.props.onEnd('end')
   }
@@ -79,13 +131,13 @@ Blue – G3 195.998 Hz*/
     return(
         <div className="game">
           <div className="game-infos-row">
-            <div className="info-text level-col">{`Level: ${this.state.level}`}</div>
-            <div className="info-text score-col">{`Score: ${this.state.score}`}</div>
+            <div className="info-text">{`Level: ${this.state.level}`}</div>
+            <div className="info-text">{`Score: ${this.state.score}`}</div>
           </div>
 
           <div className="squares-row">
             {this.buttons.map((button, index) =>
-              <div className="square-wrapper" key={index} onMouseUp={() => this.stop(button)} onMouseDown={() => this.play(button)}>
+              <div className="square-wrapper" key={index} onMouseUp={() => this.stop(button)} onMouseDown={() => this.recordUserSequence(button)}>
                 <div className="square" id={button.color}></div>
                 <div style={{display: this.state.currentButton === button.color ? '' : 'none'}} className={`highlight-${button.color}`} ></div>
               </div>            
