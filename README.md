@@ -42,4 +42,8 @@ Super simple implementation of the game Simon Say's
 
 ### TODO
 
+- error sound
+- css not working well on firefox
+- template for game / disposition of 'squares'
+- touchable interface (hammerJS ?)
 ...

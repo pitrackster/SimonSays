@@ -21,8 +21,8 @@ class Home extends Component {
           <div className="col-md-12 text-center">
             <h1 className="game-title">Super Simon Game</h1>
             <div className="color-container">
-              <div className="color red"></div>
               <div className="color green"></div>
+              <div className="color red"></div>
               <div className="color yellow"></div>
               <div className="color blue"></div>
             </div>

@@ -101,11 +101,13 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  width: 100%;
+  height: 200px;
 }
 
 .square {
-  width: 150px;
-  height: 150px;
+  width: 95%;
+  height: 95%;
   border: 1px solid #aaa;
   border-radius: 5px;
 }
@@ -159,38 +161,35 @@ body {
 }
 
 #green {
-  background: linear-gradient(315deg, transparent 75%, #5DD464 0)-2px 0,
-  linear-gradient(45deg, transparent 75%, #5DD464 0)-2px 0,
+  background: linear-gradient(315deg, transparent 75%, #5DD464 0)-5px 0,
+  linear-gradient(45deg, transparent 75%, #5DD464 0)-5px 0,
   linear-gradient(135deg, #009909 50%, transparent 0) 0 0,
   linear-gradient(45deg, #007107 50%, #007107 0) 0 0 #007107;
-  background-size: 4px 4px;
+  background-size: 10px 10px;
 }
-
 
 #yellow {
-  background: linear-gradient(315deg, transparent 75%, #D4D469 0)-2px 0,
-  linear-gradient(45deg, transparent 75%, #D4D469 0)-2px 0,
+  background: linear-gradient(315deg, transparent 75%, #D4D469 0)-5px 0,
+  linear-gradient(45deg, transparent 75%, #D4D469 0)-5px 0,
   linear-gradient(135deg, yellow 50%, transparent 0) 0 0,
   linear-gradient(45deg, #8F8F11 50%, #8F8F11 0) 0 0 #8F8F11;
-  background-size: 4px 4px;
+  background-size: 10px 10px;
 }
-
 
 #red {
-  background: linear-gradient(315deg, transparent 75%, #d45d55 0)-2px 0,
-  linear-gradient(45deg, transparent 75%, #d45d55 0)-2px 0,
+  background: linear-gradient(315deg, transparent 75%, #d45d55 0)-5px 0,
+  linear-gradient(45deg, transparent 75%, #d45d55 0)-5px 0,
   linear-gradient(135deg, #FF1000 50%, transparent 0) 0 0,
   linear-gradient(45deg, #6a201b 50%, #561a16 0) 0 0 #561a16;
-  background-size: 4px 4px;
+  background-size: 10px 10px;
 }
 
-
 #blue {
-  background: linear-gradient(315deg, transparent 75%, #5656FA 0)-2px 0,
-  linear-gradient(45deg, transparent 75%, #5656FA 0)-2px 0,
+  background: linear-gradient(315deg, transparent 75%, #5656FA 0)-5px 0,
+  linear-gradient(45deg, transparent 75%, #5656FA 0)-5px 0,
   linear-gradient(135deg, blue 50%, transparent 0) 0 0,
   linear-gradient(45deg, #000087 50%, #000087 0) 0 0 #000087;
-  background-size: 4px 4px;
+  background-size: 10px 10px;
 }
 
 .end {
