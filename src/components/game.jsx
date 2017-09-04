@@ -32,6 +32,8 @@ class Game extends Component {
         note: 195.998
       }
     ]
+
+    this.buzzer = new Audio('./audio/buzzer.mp3')
   
     this.state = this.initialState    
     this.synth = new Synth()   
@@ -122,8 +124,13 @@ class Game extends Component {
 
   endGame() {
     // @TODO create an error sound
-    this.setState(this.initialState)
-    this.props.onEnd('end')
+    this.buzzer.addEventListener('ended', () => {
+      this.buzzer.pause()
+      this.buzzer.currentTime = 0
+      this.setState(this.initialState)
+      this.props.onEnd('end')
+    })
+    this.buzzer.play()    
   }
 
   render() {
