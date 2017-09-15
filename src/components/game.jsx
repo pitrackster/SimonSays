@@ -60,11 +60,15 @@ class Game extends Component {
   componentDidMount() {
     this.props.updateLevel(1)
     this.props.updateScore(0)
-    this.playSequence(this.state.sequence)
+    // wait a bit before playing
+    setTimeout(() => {
+      this.playSequence(this.state.sequence)
+    }, 1000)
+    
   }
 
   getRandomIndex() {
-    //  Math.floor(Math.random() * (max - min + 1)) + min;
+    // real formula is: Math.floor(Math.random() * (max - min + 1)) + min;
     return Math.floor(Math.random() * 4)
   }
 
@@ -86,12 +90,16 @@ class Game extends Component {
     this.lighten(button.color)   
   }
 
-  stop(){
+  stop(e){
+    if(e){
+      e.preventDefault()
+    }
     this.synth.stop()
     this.unlighten()  
   }
 
-  recordUserSequence(button){
+  recordUserSequence(e, button){
+    e.preventDefault()
     if (this.state.playing) {
       return false
     }
@@ -122,28 +130,34 @@ class Game extends Component {
     this.setState(Object.assign(this.state, {currentButton: ''}))
   }
 
-  endGame() {
-    // @TODO create an error sound
+  componentWillUnmount(){      
+    this.setState(this.initialState) 
+  }
+
+  endGame() {  
     this.buzzer.addEventListener('ended', () => {
       this.buzzer.pause()
       this.buzzer.currentTime = 0
-      this.setState(this.initialState)
       this.props.onEnd('end')
     })
-    this.buzzer.play()    
+    this.buzzer.play() 
   }
 
   render() {
     return(
         <div className="game">
           <div className="game-infos-row">
-            <div className="info-text">{`Level: ${this.props.level}`}</div>
-            <div className="info-text">{`Score: ${this.props.score}`}</div>
+            <div className="game-text md">{`Level: ${this.props.level}`}</div>
+            <div className="game-text md">{`Score: ${this.props.score}`}</div>
           </div>
-
           <div className="squares-row">
             {this.buttons.map((button, index) =>
-              <div className="square-wrapper" key={index} onMouseUp={() => this.stop(button)} onMouseDown={() => this.recordUserSequence(button)}>
+              <div className="square-wrapper" 
+                  key={index}                  
+                  onTouchStart={(e) => this.recordUserSequence(e, button)}
+                  onTouchEnd={(e) => this.stop(e)}
+                  onMouseDown={(e) => this.recordUserSequence(e, button)}
+                  onMouseUp={() => this.stop()}>
                 <div className="square" id={button.color}></div>
                 <div style={{display: this.state.currentButton === button.color ? '' : 'none'}} className={`highlight-${button.color}`} ></div>
               </div>            

@@ -19,14 +19,14 @@ class Home extends Component {
     return(
         <div className="row home">
           <div className="col-md-12 text-center">
-            <h1 className="game-title">Super Simon Game</h1>
+            <h1 className="game-text lg">Super Simple Simon Game</h1>
             <div className="color-container">
               <div className="color green"></div>
               <div className="color red"></div>
               <div className="color yellow"></div>
               <div className="color blue"></div>
             </div>
-            <span className="game-start" onClick={() => this.props.onStart('game')}>Start</span>  
+            <span className="game-text md" onClick={() => this.props.onStart('game')}>Start</span>  
           </div>               
         </div>
       )

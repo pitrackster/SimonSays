@@ -9,14 +9,14 @@ class End extends Component {
   render() {
     return (
         <div className="end">
-          <div className="end-text">{`_*_ Level ${this.props.level} - Score ${this.props.score} _*_`}</div>
+          <div className="game-text sm">{`_*_ Level ${this.props.level} - Score ${this.props.score} _*_`}</div>
           <div className="color-container">
             <div className="color green"></div>
             <div className="color red"></div>
             <div className="color yellow"></div>
             <div className="color blue"></div>
           </div>
-          <div className="end-text" onClick={() => this.props.onRestart('game')}>{'* Retry *'}</div>  
+          <div className="game-text sm" onClick={() => this.props.onRestart('game')}>{'* Retry *'}</div>  
         </div>
       )
   }

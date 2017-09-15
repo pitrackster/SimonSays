@@ -4,8 +4,6 @@ import Home from './components/home.jsx'
 import Game from './components/game.jsx'
 import End from './components/end.jsx'
 
-
-
 class App extends Component {
   constructor(props) {
     super(props)
@@ -33,9 +31,11 @@ class App extends Component {
 
   render() {
     return(
+  
       <div className="container">
         <div className="row">
           <div className="col-md-12">
+          
             {this.state.view === 'home' &&
               <Home onStart={() => this.changeView('game')} />
             }

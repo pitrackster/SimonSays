@@ -3,19 +3,19 @@
 Super simple implementation of the game Simon Say's
 
 - ReactJS
-- ToneJS
+- Webaudio API
 - Fonts from https://fonts.google.com/
 
 ### Original game infos
 
-#### The game features 3 skill levels
+#### The game features 4 skill levels
 
 - Repeat a sequence of 8 colours
 - Repeat a sequence of 14 colours
 - Repeat a sequence of 20 colours
 - Repeat a sequence of 31 colours
 
-#### Squares
+#### Squares / Tiles
 
 - Green square – G4 391.995 Hz
 - Red square – E4 329.628 Hz
@@ -39,11 +39,14 @@ Super simple implementation of the game Simon Say's
 - `npm run webpack` - build javascript
 - `npm run watch` - build javascript and watch for changes
 
+### Known issues
+
+- css not working well on firefox (tiles background)
+- touch events works out of the box on Firefox 55.0.2 (no need to handle specific events) but not in Chrome Version 61.0.3163.79...
 
 ### TODO
 
-- error sound
-- css not working well on firefox
 - template for game / disposition of 'squares'
-- touchable interface (hammerJS ?)
+- make it rock solid (avoid user to press to tiles at once)
+
 ...

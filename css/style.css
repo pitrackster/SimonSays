@@ -5,28 +5,33 @@ body {
 }
 
 
-
-
-/* HOME COMP */
-
-.game-title {
-  text-align: center;
-  text-shadow: -1px -1px 0px rgba(255,255,255,0.3), 1px 1px 0px rgba(0,0,0,0.8);  
-  opacity: 0.4;
-  color: #333;
-	font: 700 120px 'Bitter';
-}
-
-
-.game-start {
+.game-text {
   color: white;
   cursor: pointer;
-  font: 700 80px 'Permanent Marker';
+  font-family: 'Orbitron', sans-serif;
   color: red;
   -webkit-text-fill-color: white;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: red;
 }
+
+.game-text.sm {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.game-text.md {
+  font-size: 60px;
+  font-weight: 700;
+}
+
+.game-text.lg {
+  font-size: 80px;
+  font-weight: 700;
+}
+
+
+/* HOME COMP */
 
 .color-container {
   display: flex;
@@ -77,18 +82,6 @@ body {
   justify-content: space-between;
   color: white;
   margin-bottom: 35px;
-}
-
-.info-text {
-  color: white;
-  cursor: pointer;
-  font-size: 80px;
-  font-weight: 700;
-  font-family: 'Orbitron', sans-serif;
-  color: red;
-  -webkit-text-fill-color: white;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: red;
 }
 
 .squares-row {
@@ -196,16 +189,4 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.end-text {
-  color: white;
-  cursor: pointer;
-  font-size: 50px;
-  font-weight: 700;
-  font-family: 'Orbitron', sans-serif;
-  color: red;
-  -webkit-text-fill-color: white;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: red;
 }
