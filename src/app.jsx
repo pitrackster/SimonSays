@@ -13,13 +13,13 @@ class App extends Component {
       score:0,
       level:1
     }
-  
+
     this.state = this.initialState
   }
 
   changeView(view) {
     this.setState(Object.assign(this.state, {view: view}))
-  } 
+  }
 
   updateScore(score){
     this.setState(Object.assign(this.state, {score: score}))
@@ -31,11 +31,11 @@ class App extends Component {
 
   render() {
     return(
-  
+
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-          
+
             {this.state.view === 'home' &&
               <Home onStart={() => this.changeView('game')} />
             }
@@ -46,7 +46,7 @@ class App extends Component {
               <End level={this.state.level} score={this.state.score} onRestart={() => this.changeView('game')} />
             }
           </div>
-        </div>      
+        </div>
       </div>
     )
   }
