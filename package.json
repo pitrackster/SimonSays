@@ -6,8 +6,19 @@
   "scripts": {
     "webpack": "webpack -d",
     "watch": "webpack -d --watch",
-    "predeploy": "npm install && npm run webpack",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages-deploy",
+    "clean-source": "rimraf README.md src webroot package.json"
+  },
+  "gh-pages-deploy": {
+    "staticpath": "build",
+    "prep": [
+      "install",
+      "webpack"
+    ],
+    "post": [
+      "clean-source"
+    ],
+    "noprompt": false
   },
   "dependencies": {
     "babel-core": "^6.5.1",
@@ -21,7 +32,6 @@
     "css-loader": "^0.28.7",
     "eslint": "^2.13.1",
     "eslint-plugin-react": "^6.4.0",
-    "gh-pages": "^1.1.0",
     "react": "^15.3.1",
     "react-bootstrap": "^0.31.3",
     "react-dom": "^15.3.1",
