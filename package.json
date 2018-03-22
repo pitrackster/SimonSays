@@ -10,7 +10,6 @@
     "clean-source": "rimraf README.md src webroot package.json"
   },
   "gh-pages-deploy": {
-    "staticpath": "build",
     "prep": [
       "install",
       "webpack"
@@ -39,7 +38,9 @@
     "webpack": "^2.7.0"
   },
   "main": "webpack.config.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "gh-pages-deploy": "^0.4.2"
+  },
   "author": "Guillou Patrick",
   "license": "ISC"
 }
