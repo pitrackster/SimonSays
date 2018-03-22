@@ -8,11 +8,11 @@
     "webpack": "webpack -d",
     "watch": "webpack -d --watch",
     "deploy": "gh-pages-deploy",
-    "clean-source": "rimraf README.md src webroot package.json"
+    "clean-source": "rimraf README.md src package.json"
   },
   "gh-pages-deploy": {
     "prep": [
-      "webpack"
+      "install"
     ],
     "post": [
       "clean-source"
