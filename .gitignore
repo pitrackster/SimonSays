@@ -1,5 +1,4 @@
 node_modules
 downloaded/*
-build/*
 npm-debug.log
 !.keep
