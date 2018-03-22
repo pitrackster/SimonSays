@@ -6,7 +6,7 @@
   "scripts": {
     "webpack": "webpack -d",
     "watch": "webpack -d --watch",
-    "predeploy": "npm run webpack",
+    "predeploy": "npm install && npm run webpack",
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
