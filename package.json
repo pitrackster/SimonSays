@@ -4,7 +4,7 @@
   "description": "Super simple implemntation of the SuperSimon game",
   "homepage": "http://pitrackster.github.io/SimonSays/",
   "scripts": {
-    "install": "npm install && npm run webpack",
+    "build": "npm install && npm run webpack",
     "webpack": "webpack -d",
     "watch": "webpack -d --watch",
     "deploy": "gh-pages-deploy",
@@ -12,7 +12,7 @@
   },
   "gh-pages-deploy": {
     "prep": [
-      "install"
+      "build"
     ],
     "post": [
       "clean-source"
