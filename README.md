@@ -46,7 +46,9 @@ Super simple implementation of the game Simon Say's
 
 ### TODO
 
-- template for game / disposition of 'squares'
-- make it rock solid (avoid user to press to tiles at once)
-
+- UI / template for game / disposition of 'squares'
+- make it rock solid (avoid user to press two tiles at once)
+- handle high scores
+- implement all original game parameters
+- add other game mode
 ...
